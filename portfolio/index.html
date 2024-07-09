@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio Website</title>
+        <link rel="stylesheet"  href="style.css">
+        <script src="https://kit.fontawesome.com/f50527aabc.js" crossorigin="anonymous"></script>
+        </head>
+        <body>
+            <div id="header">
+                <div class="container">
+                    <nav>
+                        <img src="images/logo.png" class="logo">
+                        <ul>
+                            <li><a href ="#header">Home</a></li>
+                            <li><a href ="#about">About</a></li>
+                            <li><a href ="#skills">Skills</a></li>
+                            <li><a href ="#projects">Projects</a></li>
+                            <li><a href ="#contact">Contact</a></li>
+                           
+                        </ul>
+                       
+                    </nav>
+                    <div class="header-text">
+                        <p>Intern</p>
+                        <h1>Hi,I'm <span>Swetha</span> <br>from India</h1>
+                    </div>
+                </div>
+
+            </div>
+           <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="images/user.jpg" >
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>Hi,I am Swetha from India. I currently pursuing 
+                            a B.Tech degree in Computer Science Engineering
+                             (Artificial Intelligence and Data Science).
+                            I am interested in learning ,growing and enhancing my 
+                            abilities in cutting edge technologies. </p>
+                            <p>Education :</p>
+                            <p>2022 - finished schooling in Sri Jayendra Swamigal School</p>
+                            <p>2022-current - btech - Computer Science Engineering
+                            (Artificial Intelligence and Data Science). </p>
+                    </div>
+
+                </div>
+            </div>
+            <div id="skills">
+                <div class="container">
+                    <h1 class="sub-title">Skills</h1>
+                    <div class="skills-list">
+                        <div>
+                            <h2>CSS</h2>
+                        </div>
+                        <div>
+                            <h2>HTML</h2>
+                        </div>
+                        <div>
+                            <h2>Java Script</h2>
+                        </div>
+                        <div>
+                            <h2>Python</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="projects">
+                <div class="container">
+                    <h1 class="sub-title">Projects</h1>
+                    <div class="work-list">
+                        <div class="work">
+                            <img src="images/work-1.png">
+                            <div class ="layer">
+                                <h3>Weather App</h3>
+                                <p>The app which displys temperature,
+                                    humidity and wind speed of a particular
+                                    city</p>
+                            </div>
+                        </div>
+                        <div class="work">
+                            <img src="images/work-2.png">
+                            <div class ="layer">
+                                <h3>Personal Porfolio</h3>
+                                <p>Building a personal portfolio using CSS,
+                                    HTML and Java Script</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="contact-left">
+                            <h1 class="sub-title">Contact Me</h1>
+                            <p><i class="fa-solid fa-paper-plane"></i>contact@example.com</p>
+                            <p><i class="fa-solid fa-phone"></i>0123456789</p>
+                            <div class="social-icons">
+                                <i class="fa-brands fa-facebook"></i>
+                                <i class="fa-brands fa-twitter-square"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                                <i class="fa-brands fa-linkedin"></i>
+                            </div>
+                        </div>
+                        <div class="contact-right">
+                            <form name="submit-to-google-sheet">
+                                <input type="text" name="Name" placeholder="Your Name" required>
+                                <input type="email" name="Email" placeholder="Your Email" required>
+                                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                                <button type="submit" class="btn btn2">Submit</button>
+                            </form>
+                           <span id="msg"></span>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+           
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzj3lUvrlVs7Q9wo2C7kXRwcR24vyOr3nXpntnXkZPvHsIA5Yic7Lles2IWXNcBYEPlXQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent sucessfully"
+            setTimeout(function(){
+                msg.innerHTML =""
+            },5000)
+            form.reset()
+        })
+
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+           
+
+        </body>
+</html>
